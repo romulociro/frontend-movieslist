@@ -1,48 +1,47 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
-  "rules": {
-    "react/jsx-props-no-spreading": "off",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "import/prefer-default-export": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:decorator-position/ember"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2021,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "decorator-position"
+    ],
+    "rules": {
+      "react/jsx-no-bind": "off",
+      "import/prefer-default-export": "off",
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
         "ts": "never",
         "tsx": "never"
-      }
-    ],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
-  },
-  "settings": {
-    "no-use-before-define": ["error", { "functions": true, "classes": true }],
-    "import/resolver": {
-      "typescript": {
-        "extensions": [".ts", ".tsx", ".native.js"]
+        }
+        ],
+      "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+      "react/jsx-props-no-spreading": "off",
+      "no-unused-vars": "off","no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"]
+
+    },
+    "settings": {
+      "import/resolver": {
+      "typescript": {}
       }
     }
-  }
 }
