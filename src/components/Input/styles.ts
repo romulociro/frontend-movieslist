@@ -27,4 +27,4 @@ export const Container = styled.div`
     margin-right: 10px;
     color: #666360;
   }
-`
+`;
