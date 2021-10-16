@@ -1,20 +1,14 @@
-import React, { useCallback, useContext, useRef } from 'react';
-import { FiLogIn, FiUser, FiLock } from 'react-icons/fi';
-import * as Yup from 'yup';
+import React, { useCallback } from 'react';
+import { FiArrowLeft, FiUser, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
-import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 import { Container, Content, Background } from './styles';
 import logoImg from '../../assets/logoteste.png';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-interface ISignFormProps{
-  username: string;
-  password: string;
-}
-
-const SignIn: React.FC = () => {
-  const handleSubmit = useCallback(async (data: ISignFormProps) => {
+const SignUp: React.FC = () => {
+  const handleSubmit = useCallback(async (data: object) => {
     try {
       const schema = Yup.object().shape({
         username: Yup.string().required('Usuário obrigatório'),
@@ -31,25 +25,27 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
+      <Background />
       <Content>
         <img src={logoImg} alt="logo" />
+
         <Form onSubmit={handleSubmit}>
-          <h1>Faça seu Login</h1>
+          <h1>Faça seu Cadastro</h1>
 
           <Input name="username" icon={FiUser} placeholder="Usuário" />
           <Input name="password" icon={FiLock} type="password" placeholder="Senha" />
 
-          <Button type="submit">Entrar</Button>
+          <Button type="submit">Cadastrar</Button>
         </Form>
 
         <a href="/#">
-          <FiLogIn />
-          Criar conta
+          <FiArrowLeft />
+          Voltar para página inicial
 
         </a>
       </Content>
-      <Background />
     </Container>
   );
 };
-export default SignIn;
+
+export default SignUp;
