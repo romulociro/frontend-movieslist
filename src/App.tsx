@@ -1,21 +1,19 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
-// import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
 import { AuthProvider } from './context/AuthContext';
-import SignIn from './pages/SignIn';
+import Routes from './routes';
 
 const App: React.FC = () => (
-  <>
+  <Router>
     <AuthProvider>
-      <SignIn />
+      <Routes />
     </AuthProvider>
 
     <GlobalStyle />
-  </>
+  </Router>
 );
 
 export default App;
