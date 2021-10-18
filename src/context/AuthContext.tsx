@@ -9,7 +9,7 @@ interface ISignCredentialsProps{
 }
 
 interface IAuthContextProps {
-  user: object;
+  user: any;
   signIn(credentials: ISignCredentialsProps): Promise<void>;
   signOut(): void;
 }
@@ -48,8 +48,8 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.remove('@MovieList:token');
-    localStorage.remove('@MovieList:user');
+    localStorage.removeItem('@MovieList:token');
+    localStorage.removeItem('@MovieList:user');
 
     setData({} as IAuthStateProps);
   }, []);
