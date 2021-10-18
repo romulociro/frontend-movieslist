@@ -2,15 +2,18 @@ import React, { useCallback } from 'react';
 import { FiArrowLeft, FiUser, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
   Container, Content, Background, AnimationContainer,
 } from './styles';
 import logoImg from '../../assets/logoteste.png';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import api from '../../services/api';
 
 const SignUp: React.FC = () => {
+  const history = useHistory();
+
   const handleSubmit = useCallback(async (data: object) => {
     try {
       const schema = Yup.object().shape({
@@ -21,6 +24,9 @@ const SignUp: React.FC = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
+      await api.post('/users', data);
+
+      history.push('/');
     } catch (error) {
       console.log(error);
     }
