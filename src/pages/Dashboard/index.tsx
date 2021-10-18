@@ -5,6 +5,7 @@ import { CardContainer } from './styles';
 import { Header } from '../../components/Header';
 import 'antd/dist/antd.css';
 import api from '../../services/api';
+import DetailsMovie from '../DetailsMovie';
 
 const Dashboard: React.FC = () => {
   const token = localStorage.getItem('@MovieList:token');
@@ -38,7 +39,7 @@ const Dashboard: React.FC = () => {
                 className="card"
                 size="small"
                 title={movie.title}
-                extra={<Link to="/">More</Link>}
+                extra={<DetailsMovie sinopse={movie.sinopse} title={movie.title} />}
               >
                 <p>
                   Diretor:
