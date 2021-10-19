@@ -3,7 +3,7 @@
 
 ### Features
 
-- [x] Login
+- [x] Login/Logout
 - [x] Cadastro de Filmes
 - [x] Listagem de Filmes
 
