@@ -5,8 +5,7 @@
 
 - [x] Login
 - [x] Cadastro de Filmes
-- [] Listagem de Filmes
-- [] TOP 10 
+- [x] Listagem de Filmes
 
 
 ### Pré-requisitos
